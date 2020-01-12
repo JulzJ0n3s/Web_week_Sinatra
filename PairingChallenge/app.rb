@@ -1,3 +1,5 @@
+#Contoroller
+
 require 'sinatra'
 
 
@@ -19,10 +21,15 @@ get '/random-cat' do
     erb :myfile
 end  
 
-get '/named-cat' do
+get '/cat_form' do
     #    File.read('myfile.html')
-        # p @random_name
-        # @random_name = params[:name]
-        # puts params['bob']
-        erb :myfile, :locals => {:name => params[:name]}
-    end  
+    #     @random_name = params[name]
+    #     puts params['bob']
+    erb :cat_form
+end  
+
+post '/named-cat' do
+    @name = params[:name]
+    erb :myfile #:locals => {:name => params["name"]}
+end
+
